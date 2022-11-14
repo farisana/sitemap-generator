@@ -1,10 +1,17 @@
+@php $videoSchema = '' @endphp
+@foreach($tags as $tag)
+    @if ($tag->hasVideo())
+        @php $videoSchema = 'xmlns:video="http://www.google.com/schemas/sitemap-video/1.1' @endphp
+    @endif
+@endforeach
+
 <?= '<'.'?'.'xml version="1.0" encoding="UTF-8"?>'."\n"; ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        {{ in_array('video', array_keys($tags)) ? 'xmlns:video="http://www.google.com/schemas/sitemap-video/1.1': ''  }}
+        {{ $videoSchema  }}
 >
-@foreach($tags as $tag)
-    @include('sitemap::' . $tag->getType())
-@endforeach
+    @foreach($tags as $tag)
+        @include('sitemap::' . $tag->getType())
+    @endforeach
 </urlset>

@@ -96,6 +96,11 @@ class Url extends Tag
 		return $this;
 	}
 
+	public function hasVideo(): bool
+	{
+		return !empty($this->videos);
+	}
+
     public function path(): string
     {
         return parse_url($this->url, PHP_URL_PATH) ?? '';
