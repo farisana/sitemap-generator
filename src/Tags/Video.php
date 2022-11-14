@@ -14,7 +14,7 @@ class Video
 
 	public string $expiration_date;
 
-    public static function create(string $player_loc, string $thumbnail_loc, string $title, string $description, ?string $duration = '', ? string $expiration_date = ''): static
+    public static function create(string $player_loc, string $thumbnail_loc, string $title, string $description, ?int $duration = 0, ? string $expiration_date = ''): static
     {
         return new static($player_loc, $thumbnail_loc, $title, $description, $duration, $expiration_date);
     }
