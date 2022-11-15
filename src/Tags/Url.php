@@ -32,6 +32,9 @@ class Url extends Tag
     /** @var \Spatie\Sitemap\Tags\Video[] */
     public array $videos = [];
 
+	/** @var \Spatie\Sitemap\Tags\NewsItem[] */
+	public array $news = [];
+
     public static function create(string $url): static
     {
         return new static($url);
@@ -88,10 +91,16 @@ class Url extends Tag
         return $this;
     }
 
-
 	public function addVideo(string $player_loc, string $thumbnail_loc, string $title, string $description, string $publication_date, ?int $duration = 0, ?string $expiration_date = ''): static
 	{
 		$this->videos[] = new Video($player_loc, $thumbnail_loc, $title, $description, $publication_date, $duration, $expiration_date);
+
+		return $this;
+	}
+
+	public function addNews(string $publication_name, string $publication_lang, string $title, string $publication_date): static
+	{
+		$this->news[] = new NewsItem($publication_name, $publication_lang, $title, $publication_date);
 
 		return $this;
 	}
