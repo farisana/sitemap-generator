@@ -89,9 +89,9 @@ class Url extends Tag
     }
 
 
-	public function addVideo(string $player_loc, string $thumbnail_loc, string $title, string $description, ?int $duration = 0, ?string $expiration_date = ''): static
+	public function addVideo(string $player_loc, string $thumbnail_loc, string $title, string $description, string $publication_date, ?int $duration = 0, ?string $expiration_date = ''): static
 	{
-		$this->videos[] = new Video($player_loc, $thumbnail_loc, $title, $description, $duration, $expiration_date);
+		$this->videos[] = new Video($player_loc, $thumbnail_loc, $title, $description, $publication_date, $duration, $expiration_date);
 
 		return $this;
 	}

@@ -10,22 +10,23 @@ class Video
 	public string $title;
 
 	public string $description;
+	public string $publication_date;
 	public string $duration;
 
 	public string $expiration_date;
 
-    public static function create(string $player_loc, string $thumbnail_loc, string $title, string $description, ?int $duration = 0, ? string $expiration_date = ''): static
+    public static function create(string $player_loc, string $thumbnail_loc, string $title, string $description, string $publication_date, ?int $duration = 0, ? string $expiration_date = ''): static
     {
-        return new static($player_loc, $thumbnail_loc, $title, $description, $duration, $expiration_date);
+        return new static($player_loc, $thumbnail_loc, $title, $description, $publication_date, $duration, $expiration_date);
     }
 
-    public function __construct(string $player_loc, string $thumbnail_loc, string $title, string $description, ?int $duration = 0, ? string $expiration_date = '')
+    public function __construct(string $player_loc, string $thumbnail_loc, string $title, string $description, string $publication_date, ?int $duration = 0, ? string $expiration_date = '')
     {
 		$this->setPlayerLoc($player_loc);
 		$this->setThumbnailLoc($thumbnail_loc);
 		$this->setTitle($title);
 		$this->setDescription($description);
-
+		$this->setPublicationDate($publication_date);
 		$this->setDuration($duration);
 		$this->setExpirationDate($expiration_date);
     }
@@ -63,6 +64,12 @@ class Video
 	public function setExpirationDate(string $expiration_date): static
 	{
 		$this->expiration_date = $expiration_date;
+		return $this;
+	}
+
+	public function setPublicationDate(string $publication_date): static
+	{
+		$this->publication_date = $publication_date;
 		return $this;
 	}
 }
