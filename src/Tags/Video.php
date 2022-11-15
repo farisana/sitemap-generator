@@ -26,7 +26,7 @@ class Video
 		$this->setTitle($title);
 		$this->setDescription($description);
 
-		$this->setDuration($description);
+		$this->setDuration($duration);
 		$this->setExpirationDate($expiration_date);
     }
 
