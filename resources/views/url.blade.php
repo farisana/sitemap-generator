@@ -21,8 +21,8 @@
     <priority>{{ number_format($tag->priority,1) }}</priority>
     @endif
 
+    @each('sitemap::news', $tag->news, 'newsItem')
+    @each('sitemap::video', $tag->videos, 'video')
     @each('sitemap::image', $tag->images, 'image')
 
-    @each('sitemap::video', $tag->videos, 'video')
-    @each('sitemap::news', $tag->news, 'newsItem')
 </url>
